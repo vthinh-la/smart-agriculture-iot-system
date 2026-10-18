@@ -11,7 +11,8 @@ const uint16_t this_node = 01; // Address of this node in Octal format
 const uint16_t node00 = 00; 
 unsigned long data[6]; // number of sensors
 
-int led = 9;
+// Đèn LED báo trạng thái: Chân vật lý Pin 11 (PD5 - Digital Pin 5 trên Arduino / MiniCore)
+int led = 5;
 
 unsigned long lastInterruptTime = 0;
 

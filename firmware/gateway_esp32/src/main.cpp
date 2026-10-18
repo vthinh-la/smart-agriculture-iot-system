@@ -2,13 +2,15 @@
 
 #include "FarmConfig.h"
 
-int nut_chon = 15;
+// Sơ đồ chân nút bấm chuẩn hóa theo bản vẽ nguyên lý và mạch in thực tế:
+// KEY2 (Select): GPIO 16 | THOAT (Back): GPIO 15 | TANG (Up): GPIO 2 | GIAM (Down): GPIO 4
+int nut_chon = 16;
 bool gtmenu = false;
-int nut_thoat = 16;
+int nut_thoat = 15;
 bool gtback = false;
-int nut_tang = 4;
+int nut_tang = 2;
 bool gtlen = false;
-int nut_giam = 2;
+int nut_giam = 4;
 bool gtxuong = false;
 
 int congtru_tong = 0;

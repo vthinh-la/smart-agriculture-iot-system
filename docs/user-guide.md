@@ -30,7 +30,7 @@ sequenceDiagram
 ```
 
 ### Các bước thực hiện:
-1. Cấp nguồn $12\text{V DC}$ hoặc $220\text{V AC}$ cho tủ điều khiển Gateway.
+1. Cấp nguồn $12\text{V DC}$ cho tủ điều khiển Gateway qua cọc nguồn Domino $U_6$.
 2. Trên điện thoại, vào mục Cài đặt WiFi và quét tìm mạng có tên:  
    **`G.SÁT-Đ.KHIỂN NÔNG NGHIỆP CNC`**
 3. Mở trình duyệt web (Chrome, Safari, Firefox), nhập địa chỉ IP:  
@@ -60,11 +60,12 @@ Hệ thống cho phép nạp và nâng cấp phần mềm cho ESP32 từ xa qua 
 
 ## 3. Điều khiển trực tiếp trên màn hình LCD (HMI 4 Phím Bấm)
 
-Tủ điều khiển trung tâm được trang bị màn hình LCD 1602 và 4 nút nhấn công nghiệp:
-- **Nút CHỌN (Select - GPIO 15)**: Vào Menu, chọn mục cài đặt, lưu thông số.
-- **Nút THOÁT (Back - GPIO 16)**: Quay lại màn hình trước, thoát chế độ thủ công sang tự động.
-- **Nút TĂNG (Up - GPIO 4)**: Tăng giá trị ngưỡng, di chuyển con trỏ lên.
-- **Nút GIẢM (Down - GPIO 2)**: Giảm giá trị ngưỡng, di chuyển con trỏ xuống.
+Tủ điều khiển trung tâm được trang bị màn hình LCD 1602 và 4 nút nhấn công nghiệp (chuẩn hóa theo đúng in lụa mạch in PCB):
+- **Nút CHỌN (Select - GPIO 16 / In lụa `KEY2`)**: Vào Menu, chọn mục cài đặt, lưu thông số.
+- **Nút THOÁT (Back - GPIO 15 / In lụa `THOAT`)**: Quay lại màn hình trước, thoát chế độ thủ công sang tự động.
+- **Nút TĂNG (Up - GPIO 2 / In lụa `TANG`)**: Tăng giá trị ngưỡng, di chuyển con trỏ lên.
+- **Nút GIẢM (Down - GPIO 4 / In lụa `GIAM`)**: Giảm giá trị ngưỡng, di chuyển con trỏ xuống.
+- **Nút RESET (Hardware Reset - Chân EN / In lụa `RST`)**: Khởi động lại thiết bị tức thì.
 
 ![Sơ đồ cây Menu điều khiển LCD](images/lcd_menu_tree.png)
 
@@ -77,11 +78,12 @@ Tủ điều khiển trung tâm được trang bị màn hình LCD 1602 và 4 n�
 1. Nhấn nút **CHỌN** để vào Menu chính.
 2. Dùng phím **TĂNG / GIẢM** di chuyển đến mục *"Che do: Thu cong"*, nhấn **CHỌN**.
 3. Điều hướng đến ngõ ra cần thao tác:
-   - **OUT 1**: Bơm tưới 1
-   - **OUT 2**: Bơm tưới 2
-   - **OUT 3**: Phun sương ẩm
-   - **OUT 4**: Quạt thông gió
-   - **OUT 6**: Đèn chiếu sáng
+   - **OUT 1**: Bơm tưới 1 (Relay 1 - GPIO 13)
+   - **OUT 2**: Bơm tưới 2 (Relay 2 - GPIO 12)
+   - **OUT 3**: Phun sương ẩm (Relay 3 - GPIO 14)
+   - **OUT 4**: Quạt thông gió (Relay 4 - GPIO 27)
+   - **OUT 5**: Bơm dinh dưỡng / Sưởi (Relay 5 - GPIO 26)
+   - **OUT 6**: Đèn chiếu sáng (Relay 6 - GPIO 25)
 4. Nhấn **CHỌN** để đảo trạng thái **BẬT (ON) / TẮT (OFF)**.
 5. **Lưu ý**: Khi muốn kết thúc điều khiển bằng tay, nhấn nút **THOÁT** để quay về Menu chính, hệ thống sẽ tự động chuyển về chế độ **Tự Động (Auto Mode)**.
 
@@ -108,12 +110,12 @@ Hệ thống hỗ trợ cả máy chủ Blynk Cloud và máy chủ nội bộ (P
 | Chân ảo (V-Pin) | Kiểu dữ liệu | Chức năng | Dải giá trị |
 | :---: | :---: | :--- | :---: |
 | **V9** | WidgetLED | Trạng thái kết nối Gateway với Server | 0 (Mất mạng) / 255 (Online) |
-| **V10** | WidgetLED | Đèn báo trạng thái Relay 1 (Bơm 1) | 0 (Tắt) / 255 (Bật) |
-| **V11** | WidgetLED | Đèn báo trạng thái Relay 2 (Bơm 2) | 0 (Tắt) / 255 (Bật) |
-| **V12** | WidgetLED | Đèn báo trạng thái Relay 3 (Phun sương) | 0 (Tắt) / 255 (Bật) |
-| **V13** | WidgetLED | Đèn báo trạng thái Relay 4 (Quạt gió) | 0 (Tắt) / 255 (Bật) |
-| **V14** | WidgetLED | Đèn báo trạng thái Relay 5 (Bơm tổng) | 0 (Tắt) / 255 (Bật) |
-| **V15** | WidgetLED | Đèn báo trạng thái Relay 6 (Chiếu sáng) | 0 (Tắt) / 255 (Bật) |
+| **V10** | WidgetLED | Đèn báo trạng thái Relay 1 (Bơm 1 - GPIO 13) | 0 (Tắt) / 255 (Bật) |
+| **V11** | WidgetLED | Đèn báo trạng thái Relay 2 (Bơm 2 - GPIO 12) | 0 (Tắt) / 255 (Bật) |
+| **V12** | WidgetLED | Đèn báo trạng thái Relay 3 (Phun sương - GPIO 14) | 0 (Tắt) / 255 (Bật) |
+| **V13** | WidgetLED | Đèn báo trạng thái Relay 4 (Quạt gió - GPIO 27) | 0 (Tắt) / 255 (Bật) |
+| **V14** | WidgetLED | Đèn báo trạng thái Relay 5 (Bơm tổng - GPIO 26) | 0 (Tắt) / 255 (Bật) |
+| **V15** | WidgetLED | Đèn báo trạng thái Relay 6 (Chiếu sáng - GPIO 25) | 0 (Tắt) / 255 (Bật) |
 | **V16** | Slider / Button | Chọn Chế độ: 1 = Tự động (Auto), 0 = Thủ công (Manual) | 0 / 1 |
 | **V17 / V18** | Numeric Input | Ngưỡng Bật / Tắt độ ẩm Node 1 | 0 - 100 % |
 | **V19 / V20** | Numeric Input | Ngưỡng Bật / Tắt độ ẩm Node 2 | 0 - 100 % |

@@ -34,10 +34,12 @@
 #define RELAY5 26
 #define RELAY6 25
 
-int nut_chon = 15;  bool gtmenu = false;
-int nut_thoat = 16; bool gtback = false;
-int nut_tang = 4; bool gtlen = false;
-int nut_giam = 2; bool gtxuong = false;
+// Sơ đồ chân nút bấm chuẩn hóa theo bản vẽ nguyên lý và mạch in thực tế:
+// KEY2 (Select): GPIO 16 | THOAT (Back): GPIO 15 | TANG (Up): GPIO 2 | GIAM (Down): GPIO 4
+int nut_chon = 16;  bool gtmenu = false;
+int nut_thoat = 15; bool gtback = false;
+int nut_tang = 2;   bool gtlen = false;
+int nut_giam = 4;   bool gtxuong = false;
 
 int congtru_tong = 0; int congtru_menu1 = 0; int congtru_menu2 = 0; int congtru_menu3 = 0; int congtru_menu4 = 0;
 int demmenu1 = 0; int demmenu2 = 0; int dem_chonmenu2 = 0;
