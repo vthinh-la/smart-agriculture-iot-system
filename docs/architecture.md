@@ -152,3 +152,34 @@ $$\text{Actuator State} = \begin{cases}
 - **Packet Structure**:
   - `RF24NetworkHeader(node00)`
   - Payload buffer: `float data[6]` containing calibrated sensor floats, battery status, and node ID.
+
+---
+
+## 6. Hardware Implementation & Physical Layout Gallery
+
+### A. Central Gateway Controller
+The Gateway integrates the ESP32 compute module, power buck regulation, relay isolation, LCD I2C backpack, and the NRF24 RF frontend.
+
+| Assembled Hardware | 3D Board Visualization |
+| :---: | :---: |
+| ![Gateway Hardware Assembled](images/gateway_hardware_assembled.png) | ![Gateway 3D PCB Render](images/gateway_3d_render.png) |
+
+| PCB Layout - Top Copper / Silkscreen | PCB Layout - Bottom Copper |
+| :---: | :---: |
+| ![Gateway PCB Top](images/gateway_pcb_top.png) | ![Gateway PCB Bottom](images/gateway_pcb_bottom.png) |
+
+---
+
+### B. Remote Sensor Nodes (Points of Measurement)
+Each remote node comprises an ATmega8 MCU, NRF24L01 radio, capacitive soil moisture probe, 18650 Li-ion battery, and TP4056 charging circuit.
+
+| Assembled Sensor Node | Sensor Node PCB Layout | Field Deployment in Soil Bed |
+| :---: | :---: | :---: |
+| ![Sensor Node Hardware](images/sensor_node_hardware.png) | ![Sensor Node PCB](images/sensor_node_pcb.png) | ![Field Soil Sensor](images/field_sensor_deployment.png) |
+
+---
+
+### C. Greenhouse Pilot Deployment
+The complete system was deployed and evaluated on a pilot hydroponic and automated greenhouse installation at the Agriculture Department of Lang Son Vocational College:
+
+![Greenhouse Hydroponic Deployment](images/system_field_deployment_greenhouse.png)

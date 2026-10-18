@@ -17,6 +17,16 @@
 - **Hệ Thống Chấp Hành 6 Kênh (6-Relay Bank)**: Điều khiển tự động bơm tưới 1 & 2, máy tạo ẩm phun sương, quạt thông gió, đèn sưởi/quang hợp, van châm dinh dưỡng theo thuật toán chống rung chu kỳ (Hysteresis control).
 - **Giao Diện HMI Cục Bộ & Đám Mây**: Màn hình LCD 1602 I2C + phím bấm điều hướng / Encoder EC11 để cài đặt ngưỡng trực tiếp, đồng thời đồng bộ trạng thái lên ứng dụng di động Blynk IoT qua WiFi (tích hợp WiFiManager cấu hình AP).
 
+### Hình ảnh thực tế hệ thống (Hardware & Deployment Showcase)
+
+| Tủ Điều Khiển Trung Tâm (Gateway) | Triển Khai Thực Tế Tại Nhà Kính Thủy Canh |
+| :---: | :---: |
+| ![Mạch Gateway hoàn thiện](docs/images/gateway_hardware_assembled.png) | ![Mô hình thực tế nhà màng](docs/images/system_field_deployment_greenhouse.png) |
+
+| Node Đo Độ Ẩm Không Dây | Giám Sát Qua App Blynk | Sơ Đồ Menu LCD 4 Nút |
+| :---: | :---: | :---: |
+| ![Node cảm biến di động](docs/images/sensor_node_hardware.png) | ![Dashboard Blynk](docs/images/blynk_mobile_dashboard.png) | ![Cây menu LCD](docs/images/lcd_menu_tree.png) |
+
 ---
 
 ## 2. Kiến trúc hệ thống (System Architecture)
@@ -73,12 +83,14 @@ Repository được chuẩn hóa theo cấu trúc mã nguồn mở chuyên nghi�
 ├── LICENSE                             # Giấy phép mã nguồn mở MIT
 ├── .gitignore                          # Loại trừ file nhạy cảm, build cache, binaries
 ├── docs/                               # Tài liệu kỹ thuật chi tiết
-│   ├── architecture.md                 # Kiến trúc hệ thống, sơ đồ khối, luồng nguồn
+│   ├── architecture.md                 # Kiến trúc hệ thống, sơ đồ khối, luồng nguồn, thư viện ảnh mạch
+│   ├── user-guide.md                   # Hướng dẫn vận hành: WiFi AP portal, Web OTA, Menu LCD, Blynk
 │   ├── bom.md                          # Danh mục linh kiện (BOM) & thông số kỹ thuật
 │   ├── wiring.md                       # Sơ đồ đấu nối, bảng pinout và mức điện áp
 │   ├── assembly.md                     # Hướng dẫn gia công PCB, hàn & lắp ráp 3D
 │   ├── testing.md                      # Quy trình kiểm thử, hiệu chuẩn cảm biến
-│   └── known-issues.md                 # Lưu ý thiết kế phần cứng, chống sụt áp RF
+│   ├── known-issues.md                 # Lưu ý thiết kế phần cứng, chống sụt áp RF
+│   └── images/                         # Ảnh chụp mạch thật, sơ đồ PCB, mô hình 3D, giao diện
 ├── hardware/                           # Thiết kế mạch điện tử (EDA & Gerber)
 │   ├── schematics/
 │   │   ├── easyeda/                    # File nguồn nguyên lý EasyEDA JSON
