@@ -1,0 +1,68 @@
+# Compiled binary & firmware outputs
+*.bin
+*.hex
+*.elf
+*.map
+*.eep
+*.lst
+*.with_bootloader.*
+*.o
+*.obj
+
+# Build directories & IDE configs
+.pio/
+.vscode/
+build/
+*.tmp
+*.bak
+*.orig
+
+# Archives and Packages
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.apk
+
+# Documents, Reports, Thesis (Excluded per open-source guidelines)
+*.docx
+*.doc
+*.pptx
+*.ppt
+PL2*.docx
+Tham Khảo/
+*.html_files/
+*_files/
+
+# Operating System artifacts
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+*.swp
+*~
+
+# Credentials & Local Environment configs
+credentials.h
+secrets.h
+.env
+
+# Raw unorganized root legacy copies (Clean versions are organized inside hardware/, mechanical/, firmware/)
+/Atmega8 schamtic.pdf
+/esp32.pdf
+/nrf24.pdf
+/Cầu Phân áp analog.jpg
+/MACH CHONG NHIEU.bmp
+/MQ135-Sensor-Pinout-min.jpg
+/LINH KIỆN ĐÃ MUA.xlsx
+/LINH KI?N DA MUA.xlsx
+/CODE UPDATE/
+/Code_Esp32_Blynk_1.0/
+/ESP32_BLYNK_1.0_EDIT/
+/Encode Rotary/
+/GERBER/
+/Giao_Tiep_6 NRF24/
+/Hướng dẫn esp32/
+/Hu?ng d?n esp32/
+/VER_2.1_CONFIG_WIFI/
